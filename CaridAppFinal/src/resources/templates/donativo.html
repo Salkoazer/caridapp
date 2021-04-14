@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+    Feito pelo Vitor e Sandra
+    -->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/images/favicon.png">
+        <!-- Bootstrap CSS -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <#include "styles/caridapp_styles.css">
+        <#include "/navbar.html">
+        <#include "/footer.html">
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+        <!-- Title -->
+        <title>CaridApp - Donativo</title>
+        <style>
+        </style>
+
+    </head>
+    <body>
+
+
+
+        <div class="p-2 center"><h1>${project.title}</h1></div>
+
+
+                <div class="container-fluid p-4" style="position: relative; margin: 75px;">
+            <div class="row">
+                <#list donationOptions as option>
+                        <div class="m-2 pd-3 " >
+                        <a href="/donativo/${project.projectID}/${option.idDonationOption}" class="btn donbtn border border-dark text-light img" style="height: 180px; width:275px;">
+                            <p class="fs-4">${option.description}</p>
+                            <div><h4 style="color: #69914b"><strong>${option.amount}$</strong></h4></div>
+                        </a>
+                        </div>
+
+
+                </#list>
+            </div>
+        </div>
+
+        <div class="p-2 center">
+            <a href="/temas/${theme.id_theme}/?p=1"><input class="btn btn-success" type="button" value="${theme.theme_Name}"></a>
+            <a href="/temas/"><input class="btn btn-success" type="button" value="Regressar aos temas" ></a>
+            <a href="/temas/${theme.id_theme}/projeto/${project.projectID}"><input class="btn btn-success" type="button" value="Regressar ao projeto"></a>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,349 @@
+<style>
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/mar/2021, 17:45:33
+    Author     : Wilson
+*/
+/* cor geral de fundo para o body*/
+body {
+    background-color: #C5E0B4;
+
+}
+
+.donbtn{
+background-color: #3b4936;
+color:#69914b
+}
+
+/*Posicionar Botão no Cartão do projeto */
+.cardbtn{
+position: absolute;
+top: 21rem;
+}
+
+/*centrar flexbox*/
+.flexcenter {
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: "calibri";
+    font-size: 18px;
+    line-height: 0.8cm;
+}
+.flexcenter2 {
+    max-width: 400px;
+    margin: 20px auto;
+    font-size: 16px;
+    line-height: 0.8cm;
+    text-align:center;
+    border: 1px solid black;
+    box-shadow: 0 0 25px greenyellow;
+    color: black;
+
+}
+/*centrar texto com margens*/
+.center {
+
+    text-align:center;
+    margin: 15px 10px 15px;
+    padding: 10px;
+}
+
+ .centertxt{
+ text-align:center}
+
+.themebtn{
+    background-color:#3b4936;
+    color:white;
+    width:132px;
+}
+
+
+.center2 {
+    display:block;
+    margin: 50px 520px 300px;
+    padding: 10px;
+}
+/*cor de fundo + border*/
+.bg{
+background-color: #C5E0b4;
+border-color: #C5E0b4 ;
+}
+/*identar parágrafos*/
+p {
+  margin-bottom: 0 }
+p + p {
+  text-indent: 1.5em;
+  margin-top: 0 }
+
+.bgnav{
+
+background: linear-gradient(180deg, rgba(197,224,180,1) 50%, rgba(59,73,54,1) 100%);
+border-color: #C5E0b4 ;
+}
+
+.centerimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+/*Animações*/
+/*hover - Quando se passa com o rato por cima do objeto*/
+.card:hover{
+            box-shadow: 0 0 75px green;
+        }
+
+.img:hover{
+           box-shadow: 0 0 100px greenyellow;
+   }
+
+.logo:hover{
+     box-shadow: 0 0 75px black;
+}
+
+/* Landing Page */
+ .glow {
+  size:100%;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    box-shadow: 0 0 100px black
+        }
+  to {
+    box-shadow: 0 0 100px #C5E0B4
+        }
+}
+
+
+.foot {
+
+  background-color: #C5E0b4;
+  color: #3b4936;
+  text-align: center;
+  font-size: 12px;
+  position: fixed;
+  float: bottom;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  }
+
+/* Slider/ Carrossel*/
+.mySlides {display: none}
+.slideshow-container {
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+}
+/* Botões "Next" e "previous"  */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Posicionar botão "next" à direita */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* hover, background black */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* Texto foto */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* Número */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Animação com fade */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 500000000s;
+  animation-name: fade;
+  animation-duration: 500000000s;
+}
+@-webkit-keyframes fade {
+  from {opacity: 1}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: 1}
+  to {opacity: 1}
+}
+/* Diminuir texto em ecrãs pequenos */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+/* charts */
+@-webkit-keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+.pie-chart {
+  font-family: "Open Sans", Arial;
+}
+.pie-chart--wrapper {
+  width: 400px;
+
+  text-align: center;
+}
+.pie-chart__pie, .pie-chart__legend {
+  display: inline-block;
+  vertical-align: top;
+}
+.pie-chart__pie {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin: 10px auto 35px;
+}
+.pie-chart__pie::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  background: #EEE;
+  border-radius: 50%;
+  top: 50px;
+  left: 50px;
+}
+.pie-chart__pie::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
+  margin: 220px auto;
+}
+
+.slice {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  clip: rect(0px, 200px, 200px, 100px);
+  -webkit-animation: bake-pie 1s;
+          animation: bake-pie 1s;
+}
+.slice span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  clip: rect(0px, 200px, 200px, 100px);
+}
+/*legenda pie-chart*/
+.pie-chart__legend {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  background: #FFF;
+  padding: 0.75em 0.75em 0.05em;
+  font-size: 13px;
+  box-shadow: 1px 1px 0 #DDD, 2px 2px 0 #BBB;
+  text-align: left;
+  width: 65%;
+}
+.pie-chart__legend li {
+  height: 1.25em;
+  margin-bottom: 0.7em;
+  padding-left: 0.5em;
+  border-left: 1.25em solid black;
+}
+.pie-chart__legend em {
+  font-style: normal;
+
+}
+.pie-chart__legend span {
+  float: right;
+}
+
+.pie-charts {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 500px) {
+  .pie-charts {
+    flex-direction: column;
+  }
+}
+/* Colapse - Accordion - Área  */
+.collapsible {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: black;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #5eb062;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+
+  overflow: hidden;
+  background-color:
+  #e7fff7;
+}
+
+
+
+</style>
+

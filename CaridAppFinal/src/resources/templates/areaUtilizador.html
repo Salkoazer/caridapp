@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+    Feito pelo Vitor e Sandra
+    -->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/images/favicon.png">
+        <!-- Bootstrap CSS -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <#include "styles/caridapp_styles.css">
+        <#include "/navbar.html">
+        <#include "/footer.html">
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+        <!-- Title -->
+        <title>CaridApp - Área de Utilizador</title>
+        <style>
+        </style>
+
+    </head>
+    <body>
+        <br/>
+        <h1 style=" font-size: 50px; text-align:center"><b>Área de Utilizador</b></h1>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <#if has_favorites?exists>
+                    <div class="d-flex flex-column border border-dark" style=" background-color: white; margin-top: 10px;">
+                        <h4 class="border-bottom border-dark" style=" font-size: 35px; text-align:center; background-color:#87d58d"><b>Favoritos</b></h4>
+
+                        <div  style=" font-size: 15px; text-align:center;">
+
+                            <#list favorites as favorite>
+
+                            <div class="border-bottom border-dark" style="margin-top: 10px;"><p><a href="/temas/${favorite.id_theme}/projeto/${favorite.projectID}"><b>${favorite.title}</b></a></p><br/> </div>
+
+                            </#list>
+
+                        </div>
+                    </div>
+                    </#if>
+                </div>
+
+                <div class="col-sm">
+                    <div class="d-flex flex-column  border border-dark" style=" background-color: white; margin-top: 10px;">
+
+                        <h3 class="border-bottom border-dark" style=" font-size: 35px; text-align:center; background-color:#87d58d"><b>Dados Pessoais</b></h3>
+
+                        <div style=" font-size: 15px; text-align:center; margin-top: 10px; ">
+
+                            <div><p><b>Username: </b>${user.username}</p></div>
+                            <div> <p><b>Nome:</b> ${user.first_name}</p></div>
+                            <div> <p><b>Apelido:</b> ${user.last_name}</p></div>
+                            <div> <p><b>Género:</b> ${user.gender}</p></div>
+                            <div> <p><b>CódigoPostal:</b> ${user.postal_code}</p></div>
+                            <div><p>  <b>Email:</b> ${user.email}</p></div>
+                            <div><p> <b>País:</b> ${user.country}</p></div>
+                            <div><p> <b>NIF:</b> ${user.nif}</p></div>
+                            <div><p> <b>Data de nascimento:</b> ${user.birth_date!}</p></div>
+
+                        </div>
+                        <div class="center">
+                                <a href="/editarDados/${user.userID}"><input  type="button" class="btn btn-success" value="Editar Dados" style="width: 130px"></a>
+                                <a href="/contaDesativada/${user.userID}"><input type="button" class="btn btn-danger" value="Desativar Conta" style="width: 132px"></a>
+                            <#if is_admin?exists>
+                                <a href="/admin/"><input  type="button" class="btn btn-success m-3" value="Zona Admin" style="width: 270px"></a>
+                            </#if>
+                        </div>
+                    </div>
+
+                </div>
+
+        <!-- /*Accordion!/*  -->
+
+                <div class="col-sm" >
+                    <#if donations?exists>
+                    <div class="d-flex flex-column border border-dark" style=" background-color: white; ">
+                        <h3  class="border-bottom border-dark" style=" font-size: 35px; text-align:center; background-color:#87d58d;" ><b>Histórico de Doações</b></h3>
+                       <p class="border-bottom border-dark" style="text-align:center; "><b style="background-color: #bbf2bb; margin-bottom: 15px;">Valor Total de Doações: ${totalDonation.sum}$</b></p>
+                        <div style="font-size: 15px; text-align:center;">
+                                <#list donations as donation>
+                                <button type="button" class="collapsible border-bottom border-dark"><b>${donation.title} - ${donation.donation_date}</b></button>
+                                <div class="content border-top border-dark">
+                                    <div><p><strong>${donation.amount} $</strong></p></div>
+                                    <div>
+                                        <form action="/areaUtilizador/" method="post">
+                                            <a href="/comprovativo/${donation.donationID}"><button class="btn btn-success my-2" name="donationID" value="${donation.donationID}" >Comprovativo</button></a>
+                                        </form>
+                                    </div>
+                                </div>
+                                </#list>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
+    </body>
+</html>

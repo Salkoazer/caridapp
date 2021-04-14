@@ -1,0 +1,18 @@
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<nav class="navbar sticky-top navbar-light fixed-top bgnav ">
+    <div class="container-fluid">
+        <a href="/temas/" ><img src="/images/logo.png"  class="logo" style="width: 155px; height: 60px; "></a>
+
+
+
+        <div class="d-flex">
+            <#if user?exists>
+            <p>  <b>${user.username}</b>&nbsp;  <a href="/areaUtilizador/">   <i class="fa fa-user " style="color: green;"></i></a>&nbsp;<a href="/logout/">   <i class="fas fa-user-slash" style="color: darkred"></i></a>
+            <#else>
+            <p>[<a href="/login/">Login</a>][<a href="/registo/">Registo</a>]</p>
+        </#if>
+    </div>
+    </div>
+</nav>

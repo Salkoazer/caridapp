@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+    Feito pelo Vitor e Sandra
+    -->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/images/favicon.png">
+        <#if update_is_done?exists>
+        <meta http-equiv="refresh" content="3;url=http://localhost:8000/areaUtilizador/"/>
+        </#if>
+        <!-- Bootstrap CSS -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <#include "styles/caridapp_styles.css">
+        <#include "/navbar.html">
+        <#include "/footer.html">
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+        <!-- Title -->
+        <title>CaridApp - Editar Dados</title>
+        <style>
+        </style>
+
+    </head>
+    <body>
+
+    <h1 style=" font-size: 50px; text-align:center"><b>Editar dados</b></h1>
+    <div class="d-flex flex-column flexcenter border border-dark">
+
+
+
+            <#if update_is_done?exists>
+        <div class="p-2 flexcenter2"><h2>Dados editados com sucesso!</h2></div>
+        <#else>
+        <div class="p-2 center">
+                <form method="post" action="/editarDados/${user.userID}">
+                    <div class="float-right">
+                        <label for="username" style="margin-right: 15px"><b>User name:</b></label>
+                        <input class="float-right"  type="text" id="username" name="username" required pattern="[a-zA-Z0-9._%+-]{6,18}" title="Insira um username com 6-18 caracteres" value="${user.username}"><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="password" style="margin-right: 15px"><b>Password:</b></label>
+                        <input class="float-right" type="password" id="password" name="pass_word" required required pattern="[a-zA-Z0-9._%+-@ç?!\/|ãõáéíóúàèìòùÁÉÍÓÚÀÈÌÒÙ´`]{6,18}" title="Insira uma password com 6-18 caracteres" value="${user.pass_word}"><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="first_name" style="margin-right: 15px"><b>&nbsp&nbspNome:</b></label>
+                        <input class="float-right" type="text" id="first_name" name="first_name" required pattern="[a-zA-ZãõáéíóúàèìòùÁÉÍÓÚÀÈÌÒÙ]{2,18}" title="Primeiro Nome" value="${user.first_name}"><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="last_name" style="margin-right: 15px"><b>Apelido:</b></label>
+                        <input class="float-right" type="text" id="last_name" name="last_name" required pattern="[a-zA-ZãõáéíóúàèìòùÁÉÍÓÚÀÈÌÒÙ]{2,18}" title="Apelido" value="${user.last_name}"><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="gender" style="margin-right: 106px"><b>Género:</b></label>
+                            <select class="float-right" id="gender" name="gender" value="${user.gender}">
+                                <#assign s = user.gender>
+                                <#if s == "Masculino">
+                                <option value="Masculino" selected="selected">Masculino</option>
+                                <#else>
+                                <option value="Masculino">Masculino</option>
+                                </#if>
+                                <#if s == "Feminino">
+                                <option value="Feminino" selected="selected">Feminino</option>
+                                <#else>
+                                <option value="Feminino">Feminino</option>
+                                </#if>
+                                <#if s == "Outro">
+                                <option value="Outro" selected="selected">Outro</option>
+                                <#else>
+                                <option value="Outro">Outro</option>
+                                </#if>
+                        </select><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="postal_code"  style="margin-right: 78px"><b>Código Postal:</b></label>
+                        <input class="float-right" style="margin-right: 2px"type="tel" id="postal_code" name="postal_code2" pattern="[0-9]{3}" size="3" value="${user.postal_code2}">  <p class="float-right" style="margin-right: 2px"> - </p> <input class="float-right"  style="margin-right: 2px" type="tel" id="postal_code" name="postal_code1" pattern="[0-9]{4}" size="4" value="${user.postal_code1}"><br/>
+                    </div>
+                    <div class="float-right">
+                        <label for="email" style="margin-right: 15px"><b>Email:</b></label>
+                        <input class="float-right" type="email" id="email" name="email" value="${user.email}" style="width: 273px;"><br/>
+                    </div>
+
+                    <div class="float-right">
+                        <label for="country" style="margin-right: 15px"><b>País:</b></label>
+                        <select class="float-right" id="country" name="country">
+                            <option value=""></option>
+                        <#list countries as country>
+                            <#assign a = country.country_name>
+                            <#assign b = user.country>
+                            <#if a == b>
+                            <option value="${country.country_name}" selected="selected">${country.country_name}</option>
+                            <#else>
+                            <option value="${country.country_name}">${country.country_name}</option>
+                            </#if>
+                        </#list>
+                        </select>
+                    </div>
+                    <div class="float-right">
+                        <label for="nif" style="margin-right: 15px"><b>NIF:</b></label>
+                        <input class="float-right " type="tel" id="nif" name="nif" pattern="[0-9]{9}" value="${user.nif!}">
+                    </div>
+                    <div class="float-right">
+                        <label for="dataNasc" style="margin-right: 65px"><b>Data de Nascimento:</b></label>
+                        <input class="float-right " type="text" id="dataNasc" name="dataNasc" size="12" value="${user.birth_date!}" onfocus="(this.type='date')" >
+                    </div>
+                    <br/>
+                    <div class="float-right" style="margin-right: 75px; margin-left:75px;">
+                        <input class="btn btn-success" type="submit" value="Gravar" style="width: 100px">
+                        <a href="/login/"><input class="btn btn-success" type="button" value="Login" style="width: 100px"></a>
+                    </div>
+                </form>
+            </div>
+
+    </#if>
+    </div>
+
+        <div class="p-2 center">
+            <#if edit_error?exists>
+            <p class= "text-danger center"> <b>Edição Falhou!</b></p>
+            </#if>
+        </div>
+    </div>
+        </div>
+    </body>
+</html>
